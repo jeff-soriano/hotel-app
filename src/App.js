@@ -19,7 +19,18 @@ export default function App() {
 
   return (
     <div className="p-4">
-      <div className="mb-4">&#8592; See all Las Vegas Hotels</div>
+      <a
+        href="/"
+        className="mb-4 flex items-center text-purple-900 hover:underline"
+      >
+        <span
+          className="bg-purple-900 text-white rounded-full flex items-center justify-center mr-2"
+          style={{ height: '15px', width: '15px', fontSize: '10px' }}
+        >
+          &#8592;
+        </span>
+        SEE ALL LAS VEGAS HOTELS{' '}
+      </a>
       <div className="flex gap-x-7">
         <div className="w-1/4">
           <img
@@ -27,7 +38,7 @@ export default function App() {
             alt="Venetian hotel"
             className="mb-8 w-full"
           />
-          <ul className="py-2.5 px-3 bg-gray-100	">
+          <ul className="py-2.5 px-3 bg-gray-100">
             {hotels.map((hotel, index) => {
               return (
                 <li
@@ -43,7 +54,7 @@ export default function App() {
             })}
           </ul>
         </div>
-        <div className="grow">
+        <div>
           <div>Venetian</div>
           <div>Description</div>
         </div>
