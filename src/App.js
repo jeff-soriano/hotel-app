@@ -7,7 +7,7 @@ export default function App() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
-        setHotels([...data.list].sort())
+        setHotels([...data.list])
       })
       .catch((error) => console.error(error))
 
@@ -23,18 +23,20 @@ export default function App() {
       <div className="flex gap-x-7">
         <div className="w-1/4">
           <div
-            className="bg-black mb-3.5"
+            className="bg-black mb-8"
             style={{ height: '173px' }}
           >{`<Image>`}</div>
           <ul className="py-2.5 px-3 bg-gray-100	">
-            {hotels.map((hotel) => {
+            {hotels.map((hotel, index) => {
               return (
                 <li
-                  key={hotel.code}
+                  key={`${index}-${hotel.code}`}
                   className="flex gap-x-3 justify-between my-2.5"
                 >
-                  <span className="w-3/4">{hotel.name}</span>
-                  <span>${hotel.price}</span>
+                  <a href="/" className="w-3/4 hover:underline text-purple-900">
+                    {hotel.name}
+                  </a>
+                  <span>${hotel.price.toFixed(2)}</span>
                 </li>
               )
             })}
