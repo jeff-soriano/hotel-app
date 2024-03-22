@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Sidebar from './components/Sidebar'
 
 export default function App() {
   const [hotels, setHotels] = useState([])
@@ -32,31 +33,35 @@ export default function App() {
         SEE ALL LAS VEGAS HOTELS{' '}
       </a>
       <div className="flex gap-x-7">
-        <div className="w-1/4">
-          <img
-            src="/assets/images/venetian.jpg"
-            alt="Venetian hotel"
-            className="mb-8 w-full"
-          />
-          <ul className="py-2.5 px-3 bg-gray-100">
-            {hotels.map((hotel, index) => {
-              return (
-                <li
-                  key={`${index}-${hotel.code}`}
-                  className="flex gap-x-3 justify-between my-2.5"
-                >
-                  <a href="/" className="w-3/4 hover:underline text-purple-900">
-                    {hotel.name}
-                  </a>
-                  <span>${hotel.price.toFixed(2)}</span>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-        <div>
-          <div>Venetian</div>
-          <div>Description</div>
+        <Sidebar hotels={hotels} />
+        <div className="flex">
+          <div className="text-gray-600">
+            <div className="flex items-end mb-1">
+              <h1 className="text-3xl uppercase">Venetian</h1>
+              <div className="text text-gray-400 ml-2">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <span key={index} className="mx-0.5">
+                    &#9733;
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="flex items-end">
+              <span>
+                <span>&#9042;</span>
+                <span className="ml-1">Strip</span>
+              </span>
+              <span className="ml-4">
+                <span>&#9990;</span>
+                <span className="ml-1">1-866-4279</span>
+              </span>
+              <span className="ml-4">
+                <span>&#10084;</span>
+                <span className="ml-1">Best Price Guarantee</span>
+              </span>
+            </div>
+          </div>
+          <div>$128</div>
         </div>
       </div>
     </div>
