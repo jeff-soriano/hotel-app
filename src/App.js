@@ -4,6 +4,7 @@ import MainContent from './components/MainContent'
 
 export default function App() {
   const [hotels, setHotels] = useState([])
+  const [currentHotel, setCurrentHotel] = useState({})
 
   useEffect(() => {
     fetch('api/hotels/index.json')
@@ -16,7 +17,10 @@ export default function App() {
 
     fetch('api/hotels/venetian.json')
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data)
+        setCurrentHotel(data)
+      })
       .catch((error) => console.error(error))
   }, [])
 
@@ -36,7 +40,7 @@ export default function App() {
       </a>
       <div className="flex gap-x-7">
         <Sidebar hotels={hotels} />
-        <MainContent />
+        <MainContent currentHotel={currentHotel} />
       </div>
     </div>
   )

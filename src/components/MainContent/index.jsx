@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import TabButton from './TabButton'
 
-export default function MainContent() {
+export default function MainContent({ currentHotel }) {
   const [currentTab, setCurrentTab] = useState('description')
 
   const handleTabChange = (newTab) => setCurrentTab(newTab)
@@ -40,7 +40,7 @@ export default function MainContent() {
           <div>HOTEL ROOMS FROM</div>
         </div>
       </div>
-      <div className="flex uppercase w-full bg-fuchsia-800 text-white">
+      <div className="flex uppercase w-full bg-fuchsia-800 text-white mb-5">
         <TabButton
           label="description"
           currentTab={currentTab}
@@ -57,6 +57,7 @@ export default function MainContent() {
           handleTabChange={handleTabChange}
         />
       </div>
+      <p>{currentHotel?.description}</p>
     </div>
   )
 }
