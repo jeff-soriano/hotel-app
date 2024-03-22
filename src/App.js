@@ -8,7 +8,7 @@ export default function App() {
   const [currentHotel, setCurrentHotel] = useState({})
 
   useEffect(() => {
-    fetch('api/hotels/index.json')
+    fetch('http://localhost:8888/api/hotels')
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
@@ -16,7 +16,7 @@ export default function App() {
       })
       .catch((error) => console.error(error))
 
-    fetch('api/hotels/venetian.json')
+    fetch('http://localhost:8888/api/hotels/venetian')
       .then((response) => response.json())
       .then((data) => {
         console.log(data)
