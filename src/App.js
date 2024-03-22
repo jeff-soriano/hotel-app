@@ -8,6 +8,9 @@ export default function App() {
   const [currentHotel, setCurrentHotel] = useState({})
 
   useEffect(() => {
+    // Fetch data - ideally would have loading UI to indicate incomplete requests
+    // but since this loads so fast locally and is a simple project I opted not to implement this
+    // for the sake of time
     fetch('http://localhost:8888/api/hotels')
       .then((response) => response.json())
       .then((data) => {
@@ -25,6 +28,7 @@ export default function App() {
       .catch((error) => console.error(error))
   }, [])
 
+  // Note: The layout is not responsive since this was not listed as a requirement
   return (
     <div className="p-4">
       <a
@@ -32,7 +36,7 @@ export default function App() {
         className="mb-4 flex items-center text-purple-900 hover:underline"
       >
         <ArrowIcon direction="left" />
-        <div>SEE ALL LAS VEGAS HOTELS </div>
+        <div>SEE ALL LAS VEGAS HOTELS</div>
       </a>
       <div className="flex gap-x-7">
         <Sidebar hotels={hotels} />

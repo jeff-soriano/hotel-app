@@ -25,6 +25,7 @@ export default function MainContent({ currentHotel }) {
     })
   }
 
+  // Switch page content based on currently selected tab
   const getCurrentPage = (currentTab) => {
     switch (currentTab) {
       case TAB_NAMES.description:
