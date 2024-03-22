@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import TabButton from './TabButton'
+import Tabs from './Tabs'
 import Description from './Description'
 import Details from './Details'
 import Location from './Location'
@@ -27,23 +27,7 @@ export default function MainContent({ currentHotel }) {
   return (
     <div className="w-3/4">
       <Header />
-      <div className="flex uppercase w-full bg-fuchsia-800 text-white mb-5">
-        <TabButton
-          label="description"
-          currentTab={currentTab}
-          handleTabChange={handleTabChange}
-        />
-        <TabButton
-          label="details"
-          currentTab={currentTab}
-          handleTabChange={handleTabChange}
-        />
-        <TabButton
-          label="location"
-          currentTab={currentTab}
-          handleTabChange={handleTabChange}
-        />
-      </div>
+      <Tabs currentTab={currentTab} handleTabChange={handleTabChange} />
       {getCurrentPage(currentTab)}
     </div>
   )
