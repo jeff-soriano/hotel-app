@@ -12,6 +12,7 @@ export default function Description({ description }) {
     <div>
       <p
         className={classNames('mb-5 overflow-hidden', {
+          // Hides around 200px worth of content unless full description is shown (not exactly 200px because we're using Tailwind classes)
           'max-h-52': !showFullDescription,
         })}
       >

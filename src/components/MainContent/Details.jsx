@@ -9,6 +9,7 @@ export default function Details({ details }) {
     <div>
       <div
         className={classNames('mb-5 overflow-hidden', {
+          // Hides around 200px worth of content unless full details are shown (not exactly 200px because we're using Tailwind classes)
           'max-h-52': !showFullDetails,
         })}
       >
