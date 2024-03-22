@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Sidebar from './components/Sidebar'
 import MainContent from './components/MainContent'
+import ArrowIcon from './components/ArrowIcon'
 
 export default function App() {
   const [hotels, setHotels] = useState([])
@@ -30,12 +31,7 @@ export default function App() {
         href="/"
         className="mb-4 flex items-center text-purple-900 hover:underline"
       >
-        <div
-          className="bg-purple-900 text-white rounded-full flex items-center justify-center mr-2 pr-0.5"
-          style={{ height: '15px', width: '15px', fontSize: '10px' }}
-        >
-          &#8592;
-        </div>
+        <ArrowIcon direction="left" />
         <div>SEE ALL LAS VEGAS HOTELS </div>
       </a>
       <div className="flex gap-x-7">

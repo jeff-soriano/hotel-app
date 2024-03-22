@@ -3,6 +3,7 @@ import Markdown from 'react-markdown'
 import classNames from 'classnames'
 
 import TabButton from './TabButton'
+import ArrowIcon from '../ArrowIcon'
 
 export default function MainContent({ currentHotel }) {
   const [currentTab, setCurrentTab] = useState('description')
@@ -74,23 +75,13 @@ export default function MainContent({ currentHotel }) {
       >
         {showFullDescription ? (
           <>
-            Hide Full Description{' '}
-            <div
-              className="ml-2 bg-purple-900 text-white rounded-full flex items-center justify-center mr-2 pb-0.5"
-              style={{ height: '15px', width: '15px', fontSize: '10px' }}
-            >
-              &#8593;
-            </div>
+            <span className="mr-2">Hide Full Description</span>
+            <ArrowIcon direction="up" />
           </>
         ) : (
           <>
-            Show Full Description{' '}
-            <div
-              className="ml-2 bg-purple-900 text-white rounded-full flex items-center justify-center mr-2"
-              style={{ height: '15px', width: '15px', fontSize: '10px' }}
-            >
-              &#8595;
-            </div>
+            <span className="mr-2">Show Full Description</span>{' '}
+            <ArrowIcon direction="down" />
           </>
         )}
       </button>
