@@ -16,6 +16,7 @@ export default function Details({ details }) {
         {details.map((detail, index) => {
           return (
             <div
+              key={index}
               className={classNames({ 'mb-6': index !== details.length - 1 })} // Avoid doubling up on margins
             >
               <h3 className="font-bold">{detail.label}:</h3>

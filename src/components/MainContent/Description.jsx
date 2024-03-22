@@ -10,14 +10,14 @@ export default function Description({ description }) {
 
   return (
     <div>
-      <p
+      <div
         className={classNames('mb-5 overflow-hidden', {
           // Hides around 200px worth of content unless full description is shown (not exactly 200px because we're using Tailwind classes)
           'max-h-52': !showFullDescription,
         })}
       >
         <Markdown>{description}</Markdown>
-      </p>
+      </div>
       <ShowMoreButton
         showMore={showFullDescription}
         handleClick={setShowFullDescription}
