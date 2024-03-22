@@ -1,15 +1,27 @@
 import { useState } from 'react'
-import Markdown from 'react-markdown'
-import classNames from 'classnames'
 
 import TabButton from './TabButton'
 import Description from './Description'
+import Details from './Details'
+import Location from './Location'
 
 export default function MainContent({ currentHotel }) {
   const [currentTab, setCurrentTab] = useState('description')
 
   const handleTabChange = (newTab) => setCurrentTab(newTab)
 
+  const getCurrentPage = (currentTab) => {
+    switch (currentTab) {
+      case 'description':
+        return <Description description={currentHotel?.description} />
+      case 'details':
+        return <Details />
+      case 'location':
+        return <Location />
+      default:
+        return <></>
+    }
+  }
   return (
     <div className="w-3/4">
       <div className="flex justify-between mb-11">
@@ -61,7 +73,7 @@ export default function MainContent({ currentHotel }) {
           handleTabChange={handleTabChange}
         />
       </div>
-      <Description description={currentHotel?.description} />
+      {getCurrentPage(currentTab)}
     </div>
   )
 }
