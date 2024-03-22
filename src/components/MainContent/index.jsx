@@ -3,11 +3,10 @@ import Markdown from 'react-markdown'
 import classNames from 'classnames'
 
 import TabButton from './TabButton'
-import ArrowIcon from '../ArrowIcon'
+import Description from './Description'
 
 export default function MainContent({ currentHotel }) {
   const [currentTab, setCurrentTab] = useState('description')
-  const [showFullDescription, setShowFullDescription] = useState(false)
 
   const handleTabChange = (newTab) => setCurrentTab(newTab)
 
@@ -62,29 +61,7 @@ export default function MainContent({ currentHotel }) {
           handleTabChange={handleTabChange}
         />
       </div>
-      <div
-        className={classNames('mb-5 overflow-hidden', {
-          'max-h-52': !showFullDescription,
-        })}
-      >
-        <Markdown>{currentHotel?.description}</Markdown>
-      </div>
-      <button
-        className="uppercase flex items-center text-purple-900"
-        onClick={() => setShowFullDescription(!showFullDescription)}
-      >
-        {showFullDescription ? (
-          <>
-            <span className="mr-2">Hide Full Description</span>
-            <ArrowIcon direction="up" />
-          </>
-        ) : (
-          <>
-            <span className="mr-2">Show Full Description</span>{' '}
-            <ArrowIcon direction="down" />
-          </>
-        )}
-      </button>
+      <Description description={currentHotel?.description} />
     </div>
   )
 }
