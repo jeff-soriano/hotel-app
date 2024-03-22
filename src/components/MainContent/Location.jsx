@@ -6,7 +6,7 @@ export default function Location({ location }) {
         {location?.postalCode}
       </p>
       <img
-        src="/assets/images/map_venetian.png"
+        src="http://localhost:8888/assets/images/map_venetian.png"
         alt="Venetian hotel"
         className="mb-8 w-full"
       />

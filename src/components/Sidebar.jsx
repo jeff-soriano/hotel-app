@@ -2,7 +2,7 @@ export default function Sidebar({ hotels }) {
   return (
     <div className="w-1/4">
       <img
-        src="/assets/images/venetian.jpg"
+        src="http://localhost:8888/assets/images/venetian.jpg"
         alt="Venetian hotel"
         className="mb-8 w-full"
       />
