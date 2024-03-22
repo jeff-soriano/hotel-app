@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react'
-import classNames from 'classnames'
 import Sidebar from './components/Sidebar'
 import MainContent from './components/MainContent'
 
 export default function App() {
   const [hotels, setHotels] = useState([])
-  const [currentTab, setCurrentTab] = useState('description')
 
   useEffect(() => {
     fetch('api/hotels/index.json')

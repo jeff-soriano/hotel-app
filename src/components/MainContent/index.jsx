@@ -1,8 +1,10 @@
 import { useState } from 'react'
-import classNames from 'classnames'
+import TabButton from './TabButton'
 
 export default function MainContent() {
   const [currentTab, setCurrentTab] = useState('description')
+
+  const handleTabChange = (newTab) => setCurrentTab(newTab)
 
   return (
     <div className="w-3/4">
@@ -39,42 +41,21 @@ export default function MainContent() {
         </div>
       </div>
       <div className="flex uppercase w-full bg-fuchsia-800 text-white">
-        <button
-          className={classNames(
-            'py-4 px-14 grow hover:bg-fuchsia-900 border-b-4 hover:border-fuchsia-900',
-            {
-              'border-fuchsia-900': currentTab === 'description',
-              'border-fuchsia-800': currentTab !== 'description',
-            }
-          )}
-          onClick={() => setCurrentTab('description')}
-        >
-          DESCRIPTION
-        </button>
-        <button
-          className={classNames(
-            'py-4 px-14 grow hover:bg-fuchsia-900 border-b-4 hover:border-fuchsia-900',
-            {
-              'border-fuchsia-900': currentTab === 'details',
-              'border-fuchsia-800': currentTab !== 'details',
-            }
-          )}
-          onClick={() => setCurrentTab('details')}
-        >
-          DETAILS
-        </button>
-        <button
-          className={classNames(
-            'py-4 px-14 grow hover:bg-fuchsia-900 border-b-4 hover:border-fuchsia-900',
-            {
-              'border-fuchsia-900': currentTab === 'location',
-              'border-fuchsia-800': currentTab !== 'location',
-            }
-          )}
-          onClick={() => setCurrentTab('location')}
-        >
-          LOCATION
-        </button>
+        <TabButton
+          label="description"
+          currentTab={currentTab}
+          handleTabChange={handleTabChange}
+        />
+        <TabButton
+          label="details"
+          currentTab={currentTab}
+          handleTabChange={handleTabChange}
+        />
+        <TabButton
+          label="location"
+          currentTab={currentTab}
+          handleTabChange={handleTabChange}
+        />
       </div>
     </div>
   )
