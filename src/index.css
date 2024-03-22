@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: icons;
-  src: url(http://localhost:8888/assets/fonts/icons.ttf) format('truetype');
+  src: url(http://localhost:8888/assets/fonts/icons.woff) format('woff');
 }
 
 body {
