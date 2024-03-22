@@ -16,7 +16,7 @@ export default function MainContent({ currentHotel }) {
       case 'description':
         return <Description description={currentHotel?.description} />
       case 'details':
-        return <Details />
+        return <Details details={currentHotel?.details} />
       case 'location':
         return <Location />
       default:
