@@ -7,7 +7,7 @@ export default function Location({ location }) {
       </p>
       <img
         src="http://localhost:8888/assets/images/map_venetian.png"
-        alt="Venetian hotel"
+        alt="Venetian hotel location"
         className="mb-8 w-full"
       />
     </div>
