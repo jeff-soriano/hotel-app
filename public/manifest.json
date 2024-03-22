@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Hotels App",
+  "name": "Hotels App for vegas.com",
   "icons": [
     {
       "src": "favicon.ico",
