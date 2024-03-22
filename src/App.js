@@ -24,17 +24,17 @@ export default function App() {
         href="/"
         className="mb-4 flex items-center text-purple-900 hover:underline"
       >
-        <span
-          className="bg-purple-900 text-white rounded-full flex items-center justify-center mr-2"
+        <div
+          className="bg-purple-900 text-white rounded-full flex items-center justify-center mr-2 pr-0.5"
           style={{ height: '15px', width: '15px', fontSize: '10px' }}
         >
           &#8592;
-        </span>
-        SEE ALL LAS VEGAS HOTELS{' '}
+        </div>
+        <div>SEE ALL LAS VEGAS HOTELS </div>
       </a>
       <div className="flex gap-x-7">
         <Sidebar hotels={hotels} />
-        <div className="flex">
+        <div className="flex justify-between">
           <div className="text-gray-600">
             <div className="flex items-end mb-1">
               <h1 className="text-3xl uppercase">Venetian</h1>
