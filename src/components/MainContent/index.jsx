@@ -6,18 +6,24 @@ import Details from './Details'
 import Location from './Location'
 import Header from './Header'
 
+const TAB_NAMES = Object.freeze({
+  description: 'description',
+  details: 'details',
+  location: 'location',
+})
+
 export default function MainContent({ currentHotel }) {
-  const [currentTab, setCurrentTab] = useState('description')
+  const [currentTab, setCurrentTab] = useState(TAB_NAMES.description)
 
   const handleTabChange = (newTab) => setCurrentTab(newTab)
 
   const getCurrentPage = (currentTab) => {
     switch (currentTab) {
-      case 'description':
+      case TAB_NAMES.description:
         return <Description description={currentHotel?.description} />
-      case 'details':
+      case TAB_NAMES.details:
         return <Details details={currentHotel?.details} />
-      case 'location':
+      case TAB_NAMES.location:
         return <Location location={currentHotel?.location} />
       default:
         return <></>
