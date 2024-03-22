@@ -1,4 +1,4 @@
-export default function Header() {
+export default function Header({ onStripBtnClicked }) {
   return (
     <div className="flex justify-between mb-11">
       <div className="text-gray-600">
@@ -13,7 +13,7 @@ export default function Header() {
           </div>
         </div>
         <div className="flex items-end">
-          <span>&#9042; Strip</span>
+          <button onClick={onStripBtnClicked}>&#9042; Strip</button>
           <span className="ml-4">&#9990; 1-866-4279</span>
           <span className="ml-4">&#10084; Best Price Guarantee</span>
         </div>

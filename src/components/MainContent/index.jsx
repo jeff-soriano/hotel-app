@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 import Tabs from './Tabs'
 import Description from './Description'
@@ -14,8 +14,16 @@ const TAB_NAMES = Object.freeze({
 
 export default function MainContent({ currentHotel }) {
   const [currentTab, setCurrentTab] = useState(TAB_NAMES.description)
+  const tabsRef = useRef(null)
 
   const handleTabChange = (newTab) => setCurrentTab(newTab)
+
+  const scrollToTabs = () => {
+    tabsRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
 
   const getCurrentPage = (currentTab) => {
     switch (currentTab) {
@@ -32,8 +40,17 @@ export default function MainContent({ currentHotel }) {
 
   return (
     <div className="w-3/4">
-      <Header />
-      <Tabs currentTab={currentTab} handleTabChange={handleTabChange} />
+      <Header
+        onStripBtnClicked={() => {
+          setCurrentTab('location')
+          scrollToTabs()
+        }}
+      />
+      <Tabs
+        refs={tabsRef}
+        currentTab={currentTab}
+        handleTabChange={handleTabChange}
+      />
       {getCurrentPage(currentTab)}
     </div>
   )

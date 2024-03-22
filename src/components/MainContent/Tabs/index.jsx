@@ -1,8 +1,8 @@
 import TabButton from './TabButton'
 
-export default function Tabs({ currentTab, handleTabChange }) {
+export default function Tabs({ currentTab, handleTabChange, refs }) {
   return (
-    <div className="flex uppercase w-full bg-fuchsia-800 mb-5">
+    <div ref={refs} className="flex uppercase w-full bg-fuchsia-800 mb-5">
       <TabButton
         label="description"
         currentTab={currentTab}
