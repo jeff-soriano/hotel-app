@@ -19,7 +19,7 @@ export default function Header() {
         </div>
       </div>
       <div>
-        <div className="text-5xl font-bold text-orange-500">$128</div>
+        <div className="text-5xl font-bold text-orange-500 mb-1">$128</div>
         <div className="text-gray-600">HOTEL ROOMS FROM</div>
       </div>
     </div>
