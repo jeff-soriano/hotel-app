@@ -34,7 +34,7 @@ export default function App() {
       </a>
       <div className="flex gap-x-7">
         <Sidebar hotels={hotels} />
-        <div className="flex justify-between">
+        <div className="flex justify-between w-3/4">
           <div className="text-gray-600">
             <div className="flex items-end mb-1">
               <h1 className="text-3xl uppercase">Venetian</h1>
@@ -61,7 +61,10 @@ export default function App() {
               </span>
             </div>
           </div>
-          <div>$128</div>
+          <div>
+            <div className="text-5xl font-bold text-orange-500">$128</div>
+            <div>HOTEL ROOMS FROM</div>
+          </div>
         </div>
       </div>
     </div>
