@@ -15,7 +15,7 @@ In the `frontend` directory, you can run:
 ### `npm install`
 ### `npm start`
 
-This will install the necesarry node modules and then run the app in development mode.\
+This will install the necessary node modules and then run the app in development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
