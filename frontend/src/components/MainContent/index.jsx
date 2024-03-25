@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 
+import Loading from '../Loading'
 import Tabs from './Tabs'
 import Description from './Description'
 import Details from './Details'
@@ -12,7 +13,7 @@ const TAB_NAMES = Object.freeze({
   location: 'location',
 })
 
-export default function MainContent({ currentHotel }) {
+export default function MainContent({ classNames, currentHotel, loading }) {
   const [currentTab, setCurrentTab] = useState(TAB_NAMES.description)
   const tabsRef = useRef(null)
 
@@ -40,7 +41,7 @@ export default function MainContent({ currentHotel }) {
   }
 
   return (
-    <div className="w-3/4">
+    <div className={classNames}>
       <Header
         onStripBtnClicked={() => {
           setCurrentTab('location')
@@ -52,7 +53,7 @@ export default function MainContent({ currentHotel }) {
         currentTab={currentTab}
         handleTabChange={handleTabChange}
       />
-      {getCurrentPage(currentTab)}
+      {loading ? <Loading /> : getCurrentPage(currentTab)}
     </div>
   )
 }

@@ -5,12 +5,15 @@ import ArrowIcon from './components/ArrowIcon'
 
 export default function App() {
   const [hotels, setHotels] = useState([])
+  const [loadingHotels, setLoadingHotels] = useState(true)
   const [currentHotel, setCurrentHotel] = useState({})
+  const [loadingCurrentHotel, setLoadingCurrentHotel] = useState(true)
 
   useEffect(() => {
-    // Fetch data - ideally would have loading UI to indicate incomplete requests
-    // but since this loads so fast locally and is a simple project I opted not to implement this
-    // for the sake of time
+    // Set different loading states for the different api calls
+    setLoadingHotels(true)
+    setLoadingCurrentHotel(true)
+
     fetch('http://localhost:8888/api/hotels')
       .then((response) => response.json())
       .then((data) => {
@@ -18,6 +21,7 @@ export default function App() {
         setHotels([...data.list])
       })
       .catch((error) => console.error(error))
+      .finally(() => setLoadingCurrentHotel(false))
 
     fetch('http://localhost:8888/api/hotels/venetian')
       .then((response) => response.json())
@@ -26,9 +30,9 @@ export default function App() {
         setCurrentHotel(data)
       })
       .catch((error) => console.error(error))
+      .finally(() => setLoadingHotels(false))
   }, [])
 
-  // Note: The layout is not responsive since this was not listed as a requirement
   return (
     <div className="p-4">
       <a
@@ -39,8 +43,12 @@ export default function App() {
         <div>SEE ALL LAS VEGAS HOTELS</div>
       </a>
       <div className="flex gap-x-7">
-        <Sidebar hotels={hotels} />
-        <MainContent currentHotel={currentHotel} />
+        <Sidebar classNames="w-1/4" hotels={hotels} loading={loadingHotels} />
+        <MainContent
+          classNames="w-3/4"
+          currentHotel={currentHotel}
+          loading={loadingCurrentHotel}
+        />
       </div>
     </div>
   )
