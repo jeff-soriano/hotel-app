@@ -7,7 +7,7 @@ export default function Details({ details }) {
 
   return (
     <div>
-      <div
+      <ul
         className={classNames('mb-5 overflow-hidden', {
           // Hides around 200px worth of content unless full details are shown
           // (not exactly 200px because we're using Tailwind classes)
@@ -16,16 +16,16 @@ export default function Details({ details }) {
       >
         {details.map((detail, index) => {
           return (
-            <div
+            <li
               key={index}
               className={classNames({ 'mb-6': index !== details.length - 1 })} // Avoid doubling up on margins
             >
-              <h3 className="font-bold">{detail.label}:</h3>
+              <h2 className="font-bold">{detail.label}:</h2>
               <p>{detail.value}</p>
-            </div>
+            </li>
           )
         })}
-      </div>
+      </ul>
       <ShowMoreButton
         showMore={showFullDetails}
         handleClick={setShowFullDetails}
