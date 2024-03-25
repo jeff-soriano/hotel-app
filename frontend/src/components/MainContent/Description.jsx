@@ -10,15 +10,18 @@ export default function Description({ description }) {
 
   return (
     <div>
-      <div
+      <p
         className={classNames('mb-5 overflow-hidden', {
           // Hides around 200px worth of content unless full description is shown
           // (not exactly 200px because we're using Tailwind classes)
           'max-h-52': !showFullDescription,
         })}
-      >
-        <Markdown>{description}</Markdown>
-      </div>
+        dangerouslySetInnerHTML={{
+          // Replace linebreaks with line break elements so it works as expected
+          __html: description?.replace(/\n/g, '<br/>'),
+        }}
+      ></p>
+
       <ShowMoreButton
         showMore={showFullDescription}
         handleClick={setShowFullDescription}
