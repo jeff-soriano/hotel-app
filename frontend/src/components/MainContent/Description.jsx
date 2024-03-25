@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-import Markdown from 'react-markdown'
 import classNames from 'classnames'
 
 import ShowMoreButton from './ShowMoreButton'
